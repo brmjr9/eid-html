@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang = "en">
+   <head>
+        
+		<meta charset = "utf-8">
+        <title>jQuery UI Buttons functionality</title>
+        <link href = "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"
+            rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.12.1.js"></script>
+        <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+		<script>
+			
+			// defining the JQuery UI elements
+            $(document).ready(function(){
+				$( "#popup" ).dialog({autoOpen: false, title: 'Basic dialog'});
+				$( "#button-1, #button-2, #button-3, #button-4" ).button();
+				$( "#button-1" ).click(function(){changeLabel(1); $('#popup').dialog('open');});
+				$( "#button-2" ).click(function(){changeLabel(2);});
+				$( "#button-3" ).click(function(){changeLabel(3);});
+				$( "#button-4" ).click(function(){changeLabel(4);});
+			});
+			
+			// a function to change a label
+		    function changeLabel(iButton) {
+				let lbl = document.getElementById('buttonLabel');
+				var txt = 'Something happened?';
+				if (iButton==1) {txt = "Button 1!"};
+				if (iButton==2) {txt = "Button 2!"};
+				if (iButton==3) {txt = "Button 3!"};
+				if (iButton==4) {txt = "Button 4!"};
+				lbl.innerText = txt;
+		    }	 
+      </script>
+   
+   </head>
+   
+   <body>
+   
+      <!-- This is a normal button -->
+      <button id = "button-1">A button with a dialog</button>
+	  
+      <!-- This is a normal button -->
+      <input id = "button-2" type = "submit" value = "A submit button">
+
+      <!-- This is a link used as a button -->
+      <a id = "button-3" href = "">An anchor</a>
+
+      <!-- This is a checkbox -->
+      <input type = "checkbox" id = "button-4">
+      <label for = "button-4">Toggle</label>
+	  
+	  <!-- This is the label we'll change -->
+	  <p>
+	  <label id = "buttonLabel">Press one!</label>
+	  </p>
+	  
+	  <!-- This is a popup dialog -->
+	  <div id="popup">
+	     <p>This is important!</p>
+	  </div>
+	  <script>
+		  
+	  </script>
+   </body>
+</html>
